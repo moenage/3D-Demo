@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Service Viewer</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { background: #0a0a0a; overflow: hidden; font-family: sans-serif; }
+      canvas { display: block; }
+
+      #loading {
+        position: absolute; top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff; font-size: 16px; letter-spacing: 2px;
+      }
+
+      #info-panel {
+        position: absolute; top: 20px; right: 20px;
+        width: 260px; background: rgba(10,10,10,0.85);
+        border: 1px solid #333; border-radius: 8px;
+        padding: 20px; color: #fff;
+        opacity: 0; pointer-events: none;
+        transition: opacity 0.2s;
+      }
+      #info-panel.visible { opacity: 1; pointer-events: all; }
+      #part-title { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+      #part-name { font-size: 11px; color: #888; margin-bottom: 12px; }
+      #part-desc { font-size: 13px; color: #ccc; line-height: 1.6; }
+      .status-badge {
+        display: inline-block; margin-top: 12px;
+        font-size: 11px; padding: 4px 10px;
+        border-radius: 4px; background: #1a3a1a; color: #4caf50;
+      }
+
+      #hint {
+        position: absolute; bottom: 20px; left: 50%;
+        transform: translateX(-50%);
+        color: #555; font-size: 12px; letter-spacing: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading">LOADING MODEL...</div>
+    <div id="info-panel">
+      <div id="part-title">Component</div>
+      <div id="part-name">—</div>
+      <div id="part-desc">Click a part to inspect it.</div>
+      <span class="status-badge">NOMINAL</span>
+    </div>
+    <div id="hint">CLICK PARTS TO INSPECT · CLICK BACKGROUND TO REMOVE INSPECTION · DRAG TO ROTATE · SCROLL TO ZOOM</div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
