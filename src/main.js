@@ -224,7 +224,7 @@ const loader = new GLTFLoader();
 loader.setDRACOLoader(draco);
 
 loader.load(
-  './CarConcept.glb',
+  '/3D-Demo/CarConcept.glb',
   (gltf) => {
     const model = gltf.scene;
     model.traverse((child) => {
